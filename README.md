@@ -7,7 +7,9 @@ Demo App.
 clone the `birthday-calender` repository and run comman "npm start":
 
 git clone https://github.com/veches/birthday-calender.git
+
 cd birthday-calender
+
 npm start
 
 ## Linter for Jon Papa's Angular 1 Style Guide
