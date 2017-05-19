@@ -1,8 +1,10 @@
 //@ts-check
 (function () {
   'use strict';
+
   angular.module('myApp', [
     'ngRoute',
+    'myApp.common',
     'myApp.birthdayList',
     'myApp.birthday'
   ])

@@ -4,10 +4,12 @@
 
     angular
         .module('myApp.birthday', ['ngRoute'])
-        .config(['$routeProvider', function ($routeProvider) {
-            $routeProvider.when('/birthday/:id?', {
-                templateUrl: 'birthday/birthday.html',
-                controller: 'BirthdayController'
-            });
-        }]);
+        .config(['$routeProvider', config]);
+
+    function config($routeProvider) {
+        $routeProvider.when('/birthday/:id?', {
+            templateUrl: 'birthday/birthday.html',
+            controller: 'BirthdayController'
+        });
+    }
 }());

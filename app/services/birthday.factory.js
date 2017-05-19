@@ -6,7 +6,7 @@
         .module('myApp')
         .factory('BirthdayFactory', BirthdayFactory);
 
-	BirthdayFactory.$inject=['_'];
+    BirthdayFactory.$inject = ['_'];
     function BirthdayFactory(_) {
         var birthdays = [
             { id: 1, name: 'test5', date: '12-12-1212' },
@@ -30,6 +30,7 @@
         function getBirthdays(id) {
             return id !== undefined ? _.find(birthdays, function (item) { return item.id == id }) : birthdays;
         }
+
         function removeBirthday(birthday) {
             var birthdayToDelete = _.find(birthdays, function (item) {
                 return item.id == birthday.id;
