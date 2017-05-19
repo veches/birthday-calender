@@ -6,7 +6,8 @@
         .module('myApp')
         .factory('BirthdayFactory', BirthdayFactory);
 
-    function BirthdayFactory() {
+	BirthdayFactory.$inject=['_'];
+    function BirthdayFactory(_) {
         var birthdays = [
             { id: 1, name: 'test5', date: '12-12-1212' },
             { id: 2, name: 'test3', date: '02-12-1212' },
@@ -27,10 +28,10 @@
         return service;
 
         function getBirthdays(id) {
-            return id !== undefined ? birthdays.find(function (item) { return item.id == id }) : birthdays;
+            return id !== undefined ? _.find(birthdays, function (item) { return item.id == id }) : birthdays;
         }
         function removeBirthday(birthday) {
-            var birthdayToDelete = birthdays.find(function (item) {
+            var birthdayToDelete = _.find(birthdays, function (item) {
                 return item.id == birthday.id;
             });
             if (birthdayToDelete) {
@@ -39,11 +40,11 @@
         }
         function saveBirthday(birthday) {
             if (birthday.id) {
-                var birthdayToUpdate = birthdays.find(function (item) {
+                var birthdayToUpdate = _.find(birthdays, function (item) {
                     return item.id == birthday.id;
                 });
                 if (birthdayToUpdate) {
-                    Object.assign(birthdayToUpdate, birthday);
+                    _.merge(birthdayToUpdate, birthday);
                 }
             } else {
                 var lastBirthday = birthdays.slice(-1)[0];

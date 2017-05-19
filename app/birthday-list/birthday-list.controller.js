@@ -18,8 +18,8 @@
             }
             $scope.birthdays.forEach(function (item) {
                 var itemMonth = parseInt(item.date.slice(0, 2));
-                $scope.birthdayMonths
-                    .find(function (item) {
+                $scope._.find($scope.birthdayMonths, 
+                    function (item) {
                         return item.month == itemMonth
                     }).birthdays.push(item);
             });
