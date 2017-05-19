@@ -1,0 +1,35 @@
+<div class="container">
+    <h1 class="page-header">{{birthday.name ? 'Update' : 'Add New'}} Birthday</h1>
+    <form name="form" class="form-horizontal" novalidate>
+        <div class="form-group">
+            <label class="control-label col-sm-2">Name</label>
+            <div class="col-sm-6">
+                <input class="form-control" type="text" ng-model="copy.name" name="birthdayName" required="true" placeholder="Enter Name">
+            </div>
+            <div class="col-sm-offset-2 col-sm-10 help-block">
+                <div ng-show="(form.birthdayName.$touched || form.$submitted) && form.birthdayName.$error.required">Please Enter Name</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2">Date</label>
+            <div class="col-sm-6">
+                <input class="form-control" type="text" name="date" custom-validation="validateDate" required="true" pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}"
+                    ng-model="copy.date" placeholder="MM-DD-YYYY " autocomplete="off">
+            </div>
+            <div class="col-sm-offset-2 col-sm-10 help-block">
+                <div ng-show="form.date.$touched || form.$submitted">
+                    <div ng-show="form.date.$error.required">Please Enter Date</div>
+                    <div ng-show="form.date.$error.pattern">Format MM-DD-YYYY</div>
+                    <div ng-show="form.date.$error.customValidation">Please Enter Valid Birthdate</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group ">
+            <div class="col-sm-offset-2 col-sm-10 ">
+                <input type="submit" class="btn btn-default " type="submit " ng-click="saveBirthday(form)
+                    " ng-value="birthday.name ? 'SAVE' : 'ADD' ">
+                <input type="button" class="btn btn-default " ng-click="navigateToList() " value="CANCEL">
+            </div>
+        </div>
+    </form>
+</div>

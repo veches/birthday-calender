@@ -1,0 +1,41 @@
+<div class="container">
+
+    <div class="page-header">
+        <div>
+            <h1 class="">Birthdays List</h1>
+        </div>
+        <div>
+            <a class="btn btn-default" href="/birthday">Add New Birthday</a>
+        </div>
+        <div>
+            <select class="form-control" ng-change="sort(sortBy)" ng-model="sortBy">
+                <option value="month" selected>By Month</option>
+                <option value="birthday">By Birthdays</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="center-block panel panel-default text-center" ng-repeat="month in birthdayMonths track by $index" ng-click="showBirthdays=month.birthdays.length && !showBirthdays">
+            <div class="panel-heading" ng-bind="month.name"></div>
+            <h2 ng-if="!showBirthdays" class="panel-body" ng-bind="month.birthdays.length"></h2>
+            <table ng-if="showBirthdays" class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Birthday</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="birthday in month.birthdays track by $index">
+                        <td ng-bind="birthday.name"></td>
+                        <td ng-bind="birthday.date"></td>
+                        <td>
+                            <button class="btn btn-sm" ng-click="editBirthday(birthday)">Edit</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

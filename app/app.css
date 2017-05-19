@@ -1,0 +1,18 @@
+/* app css stylesheet */
+.center-block {
+    width: 500px;
+}
+.page-header {
+    display: table;
+    width: 100%;
+}
+.page-header h1 {
+    margin: 0;
+}
+.page-header > * {
+    display: table-cell;
+    vertical-align: bottom;
+}
+.text-center th {
+    text-align: center;
+}
