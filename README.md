@@ -12,7 +12,7 @@ cd birthday-calender
 
 npm start
 
-## Linter for Jon Papa's Angular 1 Style Guide
+## Linter for John Papa's Angular 1 Style Guide
 
 not all of the guildlines are added to linter rules. Style guides can be enfored by configuting .eslintrc.js file
 
